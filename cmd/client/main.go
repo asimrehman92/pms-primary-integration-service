@@ -7,12 +7,38 @@ import (
 	"os/signal"
 	"syscall"
 
+<<<<<<< HEAD
 	"github.com/asimrehman/pms-primary-integration-service/internal/config"
+=======
+	"github.com/amalikh/pms-primary-integration-service-main/internal/config"
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/sns"
 	"github.com/aws/aws-sdk-go/service/sqs"
 )
 
+<<<<<<< HEAD
+=======
+// func BuildSession() *session.Session {
+// 	// . means current folder
+// 	config, err := config.LoadConfig("C:/Users/5Cube/go/src/github.com/asimrehman/pms-primary-integration-service")
+
+// 	if err != nil {
+// 		log.Fatal("cannot load config: ", err)
+// 	}
+// 	sessionConfig := &aws.Config{
+// 		Region:      aws.String(config.Region),
+// 		Credentials: credentials.NewStaticCredentials(config.AccessKey, config.SecretKey, ""),
+// 	}
+
+// 	sess, err := session.NewSession(sessionConfig)
+// 	if err != nil {
+// 		fmt.Println("error", err)
+
+// 	}
+// 	return sess
+// }
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 func main() {
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)

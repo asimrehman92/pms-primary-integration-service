@@ -38,7 +38,11 @@ func LoadConfig(path string) (config Config, err error) {
 
 func BuildSession() *session.Session {
 	// . means current folder
+<<<<<<< HEAD
 	config, err := LoadConfig("C:/Users/5Cube/go/src/github.com/asimrehman/pms-primary-integration-service")
+=======
+	config, err := LoadConfig("C:/Users/dell/go/src/github.com/amalikh/pms-primary-integration-service")
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 
 	if err != nil {
 		log.Fatal("cannot load config: ", err)

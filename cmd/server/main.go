@@ -7,13 +7,30 @@ import (
 	"syscall"
 	"time"
 
+<<<<<<< HEAD
 	"github.com/asimrehman/pms-primary-integration-service/internal/config"
+=======
+	"github.com/amalikh/pms-primary-integration-service-main/internal/config"
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sns"
 	"github.com/aws/aws-sdk-go/service/sqs"
+<<<<<<< HEAD
 )
 
+=======
+	"github.com/borlinp/amazon-sns-sqs/common"
+)
+
+// func init() {
+// 	config, err := config.LoadConfig("C:/Users/HP/go/src/github.com/amalikh/pms-primary-integration-service-main/internal/config")
+// 	if err != nil {
+// 		log.Fatal("cannot load config: ", err)
+// 	}
+// }
+
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 func main() {
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
@@ -117,13 +134,21 @@ func GetMessages() []*sqs.Message {
 }
 
 func SubscribeSNS(cancel <-chan os.Signal) {
+<<<<<<< HEAD
 	awsSession := config.BuildSession()
+=======
+	awsSession := common.BuildSession()
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 	svcc := sqs.New(awsSession)
 	QueueName := aws.String(os.Args[2])
 	qUrl, _ := GetQueueURL(awsSession, QueueName)
 	queueURL := qUrl.QueueUrl
 
+<<<<<<< HEAD
 	Sess := config.BuildSession()
+=======
+	Sess := common.BuildSession()
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
 	svc := sns.New(Sess)
 	// TopicName := aws.String(os.Args[2])
 	_, err := svc.Subscribe(&sns.SubscribeInput{
@@ -156,3 +181,26 @@ func SubscribeSNS(cancel <-chan os.Signal) {
 		}
 	}
 }
+<<<<<<< HEAD
+=======
+
+// func BuildSession() *session.Session {
+// 	// . means current folder
+// 	config, err := config.LoadConfig("C:/Users/dell/go/src/github.com/amalikh/pms-primary-integration-service")
+
+// 	if err != nil {
+// 		log.Fatal("cannot load config: ", err)
+// 	}
+// 	sessionConfig := &aws.Config{
+// 		Region:      aws.String(config.Region),
+// 		Credentials: credentials.NewStaticCredentials(config.AccessKey, config.SecretKey, ""),
+// 	}
+
+// 	sess, err := session.NewSession(sessionConfig)
+// 	if err != nil {
+// 		fmt.Println("error", err)
+
+// 	}
+// 	return sess
+// }
+>>>>>>> 547fb98f6c68e4091bdcbb151f74c4b8c9a65b6a
